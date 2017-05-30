@@ -5,10 +5,73 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <h1>hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <div class=""> lancement le 01/06/2017
-                </div>
+                <?php
+                $args = array('cat'=> '2');
+                $posts = get_posts($args);
+
+                foreach ($posts as $post) {
+                    setup_postdata(); ?>
+                    <?php the_post_thumbnail() ?>
+                    <h1><?php the_title() ?></h1>
+                    <p><?php the_content() ?></p>
+                    <div class=""> <?php echo get_post_meta('4', 'date', true); ?>
+
+                    </div>
+                    <?php
+
+                }
+                ?>
+
+                <?php
+
+    if (isset($_POST["mail"])) {
+        echo "<p>votre email a été enregistré</p>";
+
+        $wpdb->insert(
+
+        'wp-email',
+
+        array(
+
+            'email' =>  $_POST["mail"],
+            'first_name' => $_POST["name"],
+            'options' => $_POST["options"],
+
+
+
+        )
+
+    );
+    } else {
+        echo '<form class="" action="" method="post">';
+
+        echo '<input type="text" name="name" value="" placeholder="veuillez entrer votre nom">';
+
+        echo '<input type="email" name="mail" value="" placeholder="veuillez entrer votre mail">';
+
+        echo '<select name="options">
+        <option value="html">
+        Html
+        </option>
+        <option value="text">
+        Text
+        </option>
+        </select>';
+
+        echo '<input type="submit" name="form" value="envoyer">';
+
+        echo '</form>';
+    }
+
+     ?>
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>
