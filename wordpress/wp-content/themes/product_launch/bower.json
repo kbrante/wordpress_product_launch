@@ -1,0 +1,21 @@
+{
+  "name": "product_launch",
+  "homepage": "https://github.com/kbrante/worpress_product_launch",
+  "authors": [
+    "karina BRANTE <karina.brante@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "static/external"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
