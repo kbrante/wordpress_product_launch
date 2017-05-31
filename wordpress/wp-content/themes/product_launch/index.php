@@ -25,7 +25,6 @@
                 <?php
 
     if (isset($_POST["mail"])) {
-        echo "<p>votre email a été enregistré</p>";
 
         $wpdb->insert(
 
@@ -41,7 +40,11 @@
 
         )
 
+
+
     );
+    echo get_post_meta('4', 'confirmation', true);
+
     } else {
         echo '<form class="" action="" method="post">';
 
